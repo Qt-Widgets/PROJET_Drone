@@ -1,0 +1,154 @@
+% Exigences projet DRONE
+% TEXIER Pierre-jean
+% Année 2013/2014
+
+Synopsis
+========
+
+Standard de CODAGE 
+
+Description
+===========
+
+Organisation des fichiers :
+--------------
+
+	SRC
+	INC
+	BIN
+	README
+	Makefile
+	
+`SRC`
+:   Contient que les fichiers SOURCE (*.c, *.cpp, ...)
+`INC`
+:   Contient que les fichiers HEADERS (*.h)
+`BIN`
+:   Contient les binaires généré par la compilation
+`README`
+:   Contient une explication sur chaque fichier du projet
+`Makefile`
+:   Permet de compiler l'ensemble du projet
+
+Exemple de makefile :
+--------------
+	# Makefile Multi-fichiers
+
+	CODE:=$(shell pwd)
+	DEBUG=no
+	CROSS_COMPILE=no
+
+	ifeq ($(CROSS_COMPILE),yes)
+		CC=../x-tools/arm-cortex_a8-linux-gnueabi/bin/arm-cortex_a8-linux-gnueabi-gcc
+	else
+		CC=gcc
+	endif
+
+	ifeq ($(DEBUG),yes)
+		CFLAGS=
+		LDFLAGS=
+	else
+		CFLAGS=-W -Wall -ansi -O3 -pedantic 
+		LDFLAGS=
+	endif
+
+	TARGET=soft
+
+	SRCDIR= $(CODE)/src
+	BINDIR= $(CODE)/bin
+	INCDIR= $(CODE)/include
+
+	# On récupére les *.c
+	SRC= $(wildcard $(SRCDIR)/*.c)
+	# On prend que le nom du .c
+	_NOM= $(basename $(notdir $(SRC)))
+	# BIN
+	BIN=$(addprefix $(BINDIR)/, $(addsuffix .o, $(_NOM)))
+
+	
+	all: $(TARGET)
+
+	# regle edition de liens
+
+	$(TARGET): $(BIN)
+		$(CC) -o $@ $^ $(LDFLAGS)
+	
+	# regle de compilation des sources
+
+	$(BINDIR)/%.o: $(SRCDIR)/%.c
+		$(CC) -o $@ -c -I$(INCDIR) $< $(CFLAGS)
+		$(CC) -MM $(CFLAGS) $(SRCDIR)/*.c > depends.mk
+
+
+
+	#==========================
+	#On crée nos propres régles
+	#==========================
+
+	.PHONY: dirobj clean mrproper install help
+
+	# creation du dossier $(BINDIR):
+
+	ifeq ($(strip $( $(wildcard $(BINDIR)) ) ), )
+	dirobj: 
+		mkdir $(BINDIR)
+	endif 
+
+	clean:
+		rm -rv $(BINDIR)/*o $(TARGET) 
+
+	mrproper: clean
+		rm -rv $(TARGET) 
+
+	install:
+		@echo
+		@echo "Try again"
+		@echo ""
+
+	help:
+		@echo
+		@echo "  *** HELP MENU ***"
+		@echo
+		@echo "  ----------------------------------------------------------"
+		@echo
+		@echo " + make clean    : effacement des fichiers objets "
+		@echo " + make mrproper : efface tout !"
+		@echo " + make dirobj   : creation du dossier OBJ "
+		@echo " + make install  : Pas de regle pour ce projet ..."
+		@echo " + make help  	: Affiche l'aide ..."
+	
+
+Exemple de script industrialisant le lancement du fichier Makefile :
+--------------
+	
+	#!/bin/bash
+
+	echo ""
+	echo "CLEAN"
+	echo ""
+	make clean
+	echo ""
+
+	if [ ! -d src ]  
+	then
+		mkdir src
+	fi
+
+	if [ ! -d include ]  
+	then
+		mkdir include
+	fi
+
+	if [ ! -d bin ]  
+	then
+		mkdir bin
+	fi
+
+	echo "MAKE"
+	echo ""
+	make
+
+
+
+
+
