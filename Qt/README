@@ -10,7 +10,7 @@ Petit tutoriel permettant d'implémenter Qt embedded sur plateforme ARM (Olinuxi
 Description
 ===========
 
-
+	Machine de dev = debian 64 bits
 
 Using `Qt embedded` version 4.8.2
 --------------
