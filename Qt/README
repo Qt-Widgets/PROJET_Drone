@@ -193,6 +193,12 @@ General options
 `-no-openssl`
 :   Pas de support openssl
 
+Copie des librairies
+------------------------
+
+cp -R /usr/local/Qt /"SD"/usr/local 
+cp -R /usr/local/tslib /"SD"/usr/local
+
 Sur la plateforme de DEV
 ------------------------
 
