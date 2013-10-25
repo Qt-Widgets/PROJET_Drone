@@ -80,8 +80,6 @@ DO_COMPILE()
 Second : Compiler Qtembedded (en root)
 =====
 
-	root@debian:/home/texierp/# mkdir qt-everywhere
-	root@debian:/home/texierp/# cd qt-everywhere
 	root@debian:/home/texierp/qt-everywhere# wget \
 	http://download.qt-project.org/archive/qt/4.8/4.8.2/qt-everywhere-opensource-src-4.8.2.tar.gz
 	root@debian:/home/texierp/qt-everywhere# tar xzvf \
