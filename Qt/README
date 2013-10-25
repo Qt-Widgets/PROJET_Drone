@@ -105,6 +105,8 @@ modification du fichier : qmake.conf
 	include(../../common/qws.conf)
 
 	# modifications to g++.conf
+	QMAKE_CFLAGS_RELEASE 	= -O3 -march=armv7-a -mcpu=cortex-a7 -mtune=cortex-a7 -mfpu=neon
+	QMAKE_CXXFLAGS_RELEASE  = -O3 -march=armv7-a -mcpu=cortex-a7 -mtune=cortex-a7 -mfpu=neon
 	QMAKE_CC                = <chemin de la cross-tool chain>/bin/arm-linux gnueabihf-gcc
 	QMAKE_CXX               = <chemin de la cross-tool chain>/bin/arm-linux-gnueabihf-g++
 	QMAKE_LINK              = <chemin de la cross-tool chain>/bin/arm-linux-gnueabihf-g++
@@ -188,15 +190,13 @@ General options
 `-no-phonon`
 :   Pas de support phonon
 
-`-nomake examples`
-:   Pas de génération d'exemple
-
 `-no-openssl`
 :   Pas de support openssl
 
 Sur la plateforme de DEV
 ------------------------
 
+	export LD_LIBRARY_PATH=/usr/local/Qt/lib:/usr/local/tslib/lib:/usr/lib
 	export TSLIB_TSEVENTTYPE=INPUT
 	export TSLIB_CONSOLEDEVICE=none
 	export TSLIB_FBDEVICE=/dev/fb0
@@ -207,21 +207,12 @@ Sur la plateforme de DEV
 	export QWS_MOUSE_PROTO=tslib:/dev/input/event0
 	export QWS_SIZE=1024x600
 	export QWS_DISPLAY="LinuxFb:mmWidth=222:mmHeight=125"
+	
+	Calibration
+	
 	/usr/local/bin/ts_calibrate /usr/local/tslib/etc/ts.calib
 	export TSLIB_CALIBFILE=/usr/local/tslib/etc/ts.calib
-	
-Modification du fichier : /etc/ld.so.conf
-------------------------
-	Tslib et Qt ayant été compilé en 'shared' il vaut spécifier l'endroit
-	où se situe les librairies :
-	
-	+ vim /etc/ld.so.conf
-	On rajoute :
-	
-	/usr/local/tslib/lib
-	/usr/local/Qt/lib
 
-	Puis on lance la commande 'ldconfig'
 	
 TEST !
 =====
