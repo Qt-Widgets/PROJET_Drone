@@ -147,9 +147,6 @@ DO_COMPILE()
 	root@debian:/home/texierp/qt-everywhere/qt-everywhere-opensource-src-4.8.2# make -j2
 	root@debian:/home/texierp/qt-everywhere/qt-everywhere-opensource-src-4.8.2# make install
 
-	TODO: envoi des librairies sur la carte de devs
-
-
 General options
 ---------------
 
@@ -192,11 +189,16 @@ General options
 `-no-openssl`
 :   Pas de support openssl
 
+/usr/local/tslib/etc/ts.conf
+------------------------
+
+	décommenter module_raw input	
+
 Copie des librairies
 ------------------------
 
-cp -R /usr/local/Qt /"SD"/usr/local 
-cp -R /usr/local/tslib /"SD"/usr/local
+	cp -R /usr/local/Qt /"SD"/usr/local 
+	cp -R /usr/local/tslib /"SD"/usr/local
 
 Sur la plateforme de DEV
 ------------------------
