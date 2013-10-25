@@ -144,7 +144,6 @@ DO_COMPILE()
 	-no-cups  \
 	-no-webkit  \
 	-no-phonon  \
-	-nomake examples  \
 	-no-openssl 
 
 	root@debian:/home/texierp/qt-everywhere/qt-everywhere-opensource-src-4.8.2# make -j2
