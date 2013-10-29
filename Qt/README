@@ -198,8 +198,8 @@ General options
 Copie des librairies
 ------------------------
 
-	cp -R /usr/local/Qt /"SD"/usr/local 
-	cp -R /usr/local/tslib /"SD"/usr/local
+	scp - r /usr/local/Qt root@adresse:/usr/local
+	scp - r /usr/local/tslib root@adresse:/usr/local
 
 Sur la plateforme de DEV
 ------------------------
