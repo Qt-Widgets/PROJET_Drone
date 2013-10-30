@@ -133,6 +133,7 @@ DO_COMPILE()
 	-xplatform qws/linux-arm-g++  \
 	-embedded arm  \
 	-prefix /usr/local/Qt  \
+	-qt-kbd-linuxinput \
 	-qt-mouse-tslib  \
 	-little-endian  \
 	-opensource  \
@@ -162,6 +163,9 @@ General options
 
 `-opensource`
 :   Choisie automatiquement la version opensource
+
+`-qt-kbd-linuxinput`
+:   Active le driver clavier
 
 `-qt-mouse-tslib`
 :   Active le driver tslib(écran tactile)
@@ -225,8 +229,8 @@ Sur la plateforme de DEV
 TEST !
 =====
 
-	cd /usr/local/Qt/demos/embedded/fluidlauncher 
-	./fluidlauncher -qws
+	cd /usr/local/Qt/demos/embedded/lightmaps
+	./lightmaps -qws
 
 Pour compiler un programme
 =====
