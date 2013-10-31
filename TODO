@@ -1,0 +1,7 @@
+Add in Qt/README : 
+
+- tslib patch : 
+  wget https://raw.github.com/webconn/OLINUXINO/master/SOFTWARE/A13/TOUCHSCREEN/tslib.patch
+  patch -p0 < tslib.patch
+  
+Create script shell for qt embedded
