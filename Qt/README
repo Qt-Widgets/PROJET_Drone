@@ -205,11 +205,11 @@ Copie des librairies
 	scp - r /usr/local/Qt root@adresse:/usr/local
 	scp - r /usr/local/tslib root@adresse:/usr/local
 
-Sur la plateforme de DEV
+Sur la plateforme de DEV (/etc/environment)
 ------------------------
 
 	export LD_LIBRARY_PATH=/usr/local/Qt/lib:/usr/local/tslib/lib:/usr/lib
-	export TSLIB_TSEVENTTYPE=INPUT
+	export TSLIB_TSEVENTTYPE=raw
 	export TSLIB_CONSOLEDEVICE=none
 	export TSLIB_FBDEVICE=/dev/fb0
 	export TSLIB_TSDEVICE=/dev/input/event0
