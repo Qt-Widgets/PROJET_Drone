@@ -226,8 +226,8 @@ Sur la plateforme de DEV (/etc/environment)
 	export TSLIB_CALIBFILE=/usr/local/tslib/etc/ts.calib
 
 	
-TEST !
-=====
+TEST !!
+======
 
 	cd /usr/local/Qt/demos/embedded/lightmaps
 	./lightmaps -qws
