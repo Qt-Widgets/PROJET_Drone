@@ -139,7 +139,7 @@ DO_COMPILE()
 	-opensource  \
 	-confirm-license  \
 	-I /usr/local/tslib/include/  \
-	-L /usr/local/lib/  \
+	-L /usr/local/tslib/lib/  \
 	-no-qt3support  \
 	-no-cups  \
 	-no-webkit  \
