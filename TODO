@@ -7,3 +7,5 @@ Add in Qt/README :
 - Create script shell for qt embedded
 
 - add opengl support on qt embedded
+
+- Add loadkeys ... to etc/profile
