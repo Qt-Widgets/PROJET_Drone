@@ -34,7 +34,7 @@ Préambule : L'environnement
 	lib32stdc++6
 	lib32z1
 	
-	su -c 'aptitude -y install pkg-config libqt4-dev gettext automake libtool bison gawk flex gperf build-essentials libncurses5-dev libc6-i386 lib32stdc++6 lib32z1'
+	su -c 'aptitude -y install pkg-config libqt4-dev gettext automake libtool bison gawk flex gperf build-essential libncurses5-dev libc6-i386 lib32stdc++6 lib32z1'
 
 
 Préambule bis : Le cross-compilateur (de chez Linaro)
