@@ -9,3 +9,6 @@ Add in Qt/README :
 - add opengl support on qt embedded
 
 - Add loadkeys ... to etc/profile
+
+- Auto-login
+- Bootchart
