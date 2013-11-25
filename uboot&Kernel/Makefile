@@ -5,6 +5,6 @@ CFLAGS := -O3 -march=armv7-a -mcpu=cortex-a7 -mtune=cortex-a7 -mfpu=neon-vfpv4 -
 
 .PHONY: all
 all::
-    mkdir ${KERNEL_DIR}/LOG/`date +%Y-%m-%d`
-    cp -f ${KERNEL_DIR}/.config cp -f ${KERNEL_DIR}/LOG/`date +%Y-%m-%d`
+    mkdir ${KERNEL_DIR}/LOG/`date +%d-%m-%Y`
+    cp -f ${KERNEL_DIR}/.config cp -f ${KERNEL_DIR}/LOG/`date +%d-%m-%Y`
     ${MAKE} -C ${KERNEL_DIR} ARCH=${ARCH} CROSS_COMPILE=${CROSS_COMPILE} -j2 uImage
