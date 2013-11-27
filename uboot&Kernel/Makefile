@@ -11,7 +11,8 @@ uImage::
 	${MAKE} -C ${KERNEL_DIR} ARCH=${ARCH} CROSS_COMPILE=${CROSS_COMPILE} -j2 uImage
 
 modules::
-	${MAKE} -C ${KERNEL_DIR} ARCH=${ARCH} CROSS_COMPILE=${CROSS_COMPILE} -j2 INSTALL_MOD_PATH=out modules
+	${MAKE} -C ${KERNEL_DIR} ARCH=${ARCH} CROSS_COMPILE=${CROSS_COMPILE} -j2 INSTALL_MOD_PATH=/home/texierp/a20_kernel_3.4_DRONE/linux-sunxi modules
+	su -c '${MAKE} -C ${KERNEL_DIR} ARCH=${ARCH} CROSS_COMPILE=${CROSS_COMPILE} -j2 INSTALL_MOD_PATH=/home/texierp/a20_kernel_3.4_DRONE/linux-sunxi modules install'
 
 help::
 	@echo "\n\tMakefile permettant de générer l'image kernel"
