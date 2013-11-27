@@ -4,7 +4,13 @@ KERNEL_DIR ?= /home/texierp/a20_kernel_3.4_DRONE/linux-sunxi
 CFLAGS := -O3 -march=armv7-a -mcpu=cortex-a7 -mtune=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard
 
 .PHONY: all
-all::
+all::	
+	start_time=`date +%s`
 	mkdir -p ${KERNEL_DIR}/LOG/config_`date +\%d-%m-%y_%X)`
 	cp -f ${KERNEL_DIR}/.config ${KERNEL_DIR}/LOG/config_`date +\%d-%m-%y_%X`/config_`date +\%d-%m-%y_%X`.txt
 	${MAKE} -C ${KERNEL_DIR} ARCH=${ARCH} CROSS_COMPILE=${CROSS_COMPILE} -j2 uImage
+	end_time=`date +%s`
+	delay="`expr $end_time - $start_time`"
+	mins="`expr $delay / 60`"
+	secs="`expr $delay - $mins \* 60`"
+	echo "Completed in $mins mn $secs s."
