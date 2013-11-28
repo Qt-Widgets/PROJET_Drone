@@ -30,7 +30,8 @@ uImage::
 	${MAKE} -C ${KERNEL_DIR} ARCH=${ARCH} CROSS_COMPILE=${CROSS_COMPILE} -j2 uImage
 
 modules::
-	${MAKE} -C ${KERNEL_DIR} ARCH=${ARCH} CROSS_COMPILE=${CROSS_COMPILE} -j2 modules
+	${MAKE} -C ${KERNEL_DIR} ARCH=${ARCH} CROSS_COMPILE=${CROSS_COMPILE} -j2 INSTALL_MOD_PATH=output modules
+	${MAKE} -C ${KERNEL_DIR} ARCH=${ARCH} CROSS_COMPILE=${CROSS_COMPILE} -j2 INSTALL_MOD_PATH=output modules_install
 
 help::
 	@echo "\n\tMakefile permettant de générer l'image kernel"
